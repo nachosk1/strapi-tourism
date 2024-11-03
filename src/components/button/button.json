@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_button_buttons",
+  "info": {
+    "displayName": "Button",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "minLength": 5
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}
