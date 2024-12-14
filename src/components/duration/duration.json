@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_duration_durations",
+  "info": {
+    "displayName": "duration"
+  },
+  "options": {},
+  "attributes": {
+    "start": {
+      "type": "date"
+    },
+    "end": {
+      "type": "date",
+      "required": false
+    }
+  }
+}
