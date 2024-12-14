@@ -15,6 +15,32 @@ export interface ButtonButton extends Struct.ComponentSchema {
   };
 }
 
+export interface DurationDuration extends Struct.ComponentSchema {
+  collectionName: 'components_duration_durations';
+  info: {
+    displayName: 'duration';
+  };
+  attributes: {
+    end: Schema.Attribute.Date;
+    start: Schema.Attribute.Date;
+  };
+}
+
+export interface LocationLocation extends Struct.ComponentSchema {
+  collectionName: 'components_location_locations';
+  info: {
+    displayName: 'Location';
+  };
+  attributes: {
+    city: Schema.Attribute.String & Schema.Attribute.Required;
+    country: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 5;
+      }>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -81,6 +107,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'button.button': ButtonButton;
+      'duration.duration': DurationDuration;
+      'location.location': LocationLocation;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
