@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "excursions",
+  "kind": "singleType",
+  "collectionName": "header_hotels",
   "info": {
-    "singularName": "excursion",
-    "pluralName": "excursions",
-    "displayName": "Excursion",
+    "singularName": "header-hotel",
+    "pluralName": "header-hotels",
+    "displayName": "Header-Hotel",
     "description": ""
   },
   "options": {
@@ -23,6 +23,7 @@
         }
       },
       "type": "string",
+      "required": true,
       "minLength": 5
     },
     "description": {
@@ -34,27 +35,27 @@
       "type": "blocks"
     },
     "images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
       "allowedTypes": [
         "images",
         "files"
       ],
+      "type": "media",
+      "multiple": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "slug": {
+    "button": {
+      "type": "component",
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "uid",
-      "targetField": "title"
+      "component": "button.button"
     }
   }
 }

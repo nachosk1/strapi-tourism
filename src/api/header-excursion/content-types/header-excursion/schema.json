@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "excursions",
+  "kind": "singleType",
+  "collectionName": "header_excursions",
   "info": {
-    "singularName": "excursion",
-    "pluralName": "excursions",
-    "displayName": "Excursion",
+    "singularName": "header-excursion",
+    "pluralName": "header-excursions",
+    "displayName": "Header-Excursion",
     "description": ""
   },
   "options": {
@@ -17,13 +17,13 @@
   },
   "attributes": {
     "title": {
+      "type": "string",
+      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string",
-      "minLength": 5
+      }
     },
     "description": {
       "pluginOptions": {
@@ -34,27 +34,27 @@
       "type": "blocks"
     },
     "images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
       "allowedTypes": [
         "images",
         "files"
       ],
+      "type": "media",
+      "multiple": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "slug": {
+    "button": {
+      "type": "component",
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "uid",
-      "targetField": "title"
+      "component": "button.button"
     }
   }
 }
