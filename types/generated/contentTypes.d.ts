@@ -606,6 +606,65 @@ export interface ApiHeaderHotelHeaderHotel extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHeaderProgramHeaderProgram extends Struct.SingleTypeSchema {
+  collectionName: 'header_programs';
+  info: {
+    displayName: 'Header-Program';
+    pluralName: 'header-programs';
+    singularName: 'header-program';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'button.button', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    images: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::header-program.header-program'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 5;
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
   collectionName: 'programs';
   info: {
@@ -1200,6 +1259,7 @@ declare module '@strapi/strapi' {
       'api::header-excursion.header-excursion': ApiHeaderExcursionHeaderExcursion;
       'api::header-home.header-home': ApiHeaderHomeHeaderHome;
       'api::header-hotel.header-hotel': ApiHeaderHotelHeaderHotel;
+      'api::header-program.header-program': ApiHeaderProgramHeaderProgram;
       'api::program.program': ApiProgramProgram;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
